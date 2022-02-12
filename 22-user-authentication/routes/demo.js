@@ -9,7 +9,18 @@ router.get("/", function (req, res) {
 });
 
 router.get("/signup", function (req, res) {
-  res.render("signup");
+  let sessionInputData = req.session.inputData;
+  if (!sessionInputData) {
+    sessionInputData = {
+      hasError: false,
+      email: '',
+      confirmEmail: '',
+      password: ''
+    };
+  }
+
+  req.session.inputData = null;
+  res.render("signup", { inputData: sessionInputData });
 });
 
 router.get("/login", function (req, res) {
@@ -31,8 +42,19 @@ router.post("/signup", async function (req, res) {
     email != confirmEmail ||
     !email.includes("@")
   ) {
-    console.log("data invalid");
-    return res.redirect("/signup");
+    
+    req.session.inputData = {
+      hasError:  true,
+      message: "Invalid data - please check your data",
+      email,
+      confirmEmail,
+      password
+    };
+
+    req.session.save(function() {
+      res.redirect("/signup");
+    });
+    return;
   }
 
   const existingUser = await db.getDb().collection("users").findOne({ email });
