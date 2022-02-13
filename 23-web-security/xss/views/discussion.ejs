@@ -9,7 +9,8 @@
       <ol>
         <% for (const comment of comments) { %>
           <li>
-            <%- comment.text %>
+            <!-- <%- comment.text %> dont use this, it's treated like html content not a plain text -->
+            <%= comment.text %>
           </li>
         <% } %>
       </ol>
