@@ -9,8 +9,22 @@ class Post {
     this.content = content;
 
     if (id) {
-        this.id = new ObjectId(id);
+      this.id = new ObjectId(id);
     }
+  }
+
+  static async fetchAll() {
+    const posts = await db.getDb().collection("posts").find().toArray();
+    return posts;
+  }
+
+  async fetchSingle() {
+      if (!this.id) {
+          return;
+      }
+      const result = await db.getDb().collection("posts").findOne({ _id: this.id });
+      this.title = result.title;
+      this.content = result.content;
   }
 
   async save() {
@@ -35,6 +49,9 @@ class Post {
   }
 
   async deleteOne() {
+    if (!this.id) {
+      return;
+    }
     const result = await db
       .getDb()
       .collection("posts")
