@@ -1,5 +1,5 @@
 const bcrypt = require("bcryptjs");
-const db = require("../data/database");
+const AuthModel = require("../models/auth");
 const validationSession = require("../util/validation-session");
 const validation = require("../util/validation");
 
@@ -55,11 +55,8 @@ async function signupForm(req, res) {
     return;
   }
 
-  const existingUser = await db
-    .getDb()
-    .collection("users")
-    .findOne({ email: enteredEmail });
-
+  const findUser = new AuthModel(enteredEmail);
+  const existingUser = await findUser.isExistingUser();
   if (existingUser) {
     validationSession.flashErrorsToSession(
       req,
@@ -76,14 +73,8 @@ async function signupForm(req, res) {
     return;
   }
 
-  const hashedPassword = await bcrypt.hash(enteredPassword, 12);
-
-  const user = {
-    email: enteredEmail,
-    password: hashedPassword,
-  };
-
-  await db.getDb().collection("users").insertOne(user);
+  const auth = new AuthModel(enteredEmail, enteredPassword);
+  await auth.insertUser();
 
   res.redirect("/login");
 }
@@ -93,12 +84,9 @@ async function loginForm(req, res) {
   const enteredEmail = userData.email;
   const enteredPassword = userData.password;
 
-  const existingUser = await db
-    .getDb()
-    .collection("users")
-    .findOne({ email: enteredEmail });
-
-  if (!existingUser) {
+  const existingUser = new AuthModel(enteredEmail, enteredPassword);
+  const user = await existingUser.getUserByEmail();
+  if (!user) {
     validationSession.flashErrorsToSession(
       req,
       {
@@ -113,10 +101,7 @@ async function loginForm(req, res) {
     return;
   }
 
-  const passwordsAreEqual = await bcrypt.compare(
-    enteredPassword,
-    existingUser.password
-  );
+  const passwordsAreEqual = await existingUser.comparePassword(user.password);
 
   if (!passwordsAreEqual) {
     validationSession.flashErrorsToSession(
