@@ -4,4 +4,7 @@
 
 ### Included
 1. Pilot
-22. User Authentication
+22. [User Authentication](https://github.com/razidev/web-development/tree/main/22-user-authentication)
+23. [Web Security](https://github.com/razidev/web-development/tree/main/23-web-security)
+24. [MVC Pattern](https://github.com/razidev/web-development/tree/main/24-mvc-pattern)
+25. [Online Shop](https://github.com/razidev/web-development/tree/main/25-online-shop)
