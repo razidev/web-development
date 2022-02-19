@@ -1,7 +1,7 @@
-const mongodb = require("mongodb");
+const mongodb = require('mongodb');
 const ObjectId = mongodb.ObjectId;
 
-const db = require("../data/database");
+const db = require('../data/database');
 
 class Post {
   constructor(title, content, id) {
@@ -14,7 +14,7 @@ class Post {
   }
 
   static async fetchAll() {
-    const posts = await db.getDb().collection("posts").find().toArray();
+    const posts = await db.getDb().collection('posts').find().toArray();
     return posts;
   }
 
@@ -22,13 +22,13 @@ class Post {
       if (!this.id) {
           return;
       }
-      const result = await db.getDb().collection("posts").findOne({ _id: this.id });
+      const result = await db.getDb().collection('posts').findOne({ _id: this.id });
       this.title = result.title;
       this.content = result.content;
   }
 
   async save() {
-    const result = await db.getDb().collection("posts").insertOne({
+    const result = await db.getDb().collection('posts').insertOne({
       title: this.title,
       content: this.content,
     });
@@ -39,7 +39,7 @@ class Post {
   async updateOne() {
     const result = await db
       .getDb()
-      .collection("posts")
+      .collection('posts')
       .updateOne(
         { _id: this.id },
         { $set: { title: this.title, content: this.content } }
@@ -54,7 +54,7 @@ class Post {
     }
     const result = await db
       .getDb()
-      .collection("posts")
+      .collection('posts')
       .deleteOne({ _id: this.id });
     return result;
   }

@@ -2,8 +2,8 @@ function postIsValid(title, content) {
   return (
     title &&
     content &&
-    title.trim() !== "" &&
-    content.trim() !== ""
+    title.trim() !== '' &&
+    content.trim() !== ''
   );
 }
 
@@ -14,7 +14,7 @@ function signupIsValid(email, confirmEmail, password) {
     password &&
     password.trim().length > 6 &&
     email === confirmEmail &&
-    email.includes("@")
+    email.includes('@')
   );
 };
 

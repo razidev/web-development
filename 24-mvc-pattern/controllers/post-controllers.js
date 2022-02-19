@@ -1,19 +1,19 @@
-const Post = require("../models/post");
-const validationSession = require("../util/validation-session");
-const validation = require("../util/validation");
+const Post = require('../models/post');
+const validationSession = require('../util/validation-session');
+const validation = require('../util/validation');
 
 function getHome(req, res) {
-  res.render("welcome");
+  res.render('welcome');
 }
 
 async function getAdmin(req, res) {
   const posts = await Post.fetchAll();
   const sessionErrorData = validationSession.getSessionErrorData(req, {
-    title: "",
-    content: "",
+    title: '',
+    content: '',
   });
 
-  res.render("admin", {
+  res.render('admin', {
     posts: posts,
     inputData: sessionErrorData,
   });
@@ -27,12 +27,12 @@ async function createPost(req, res) {
     validationSession.flashErrorsToSession(
       req,
       {
-        message: "Invalid input - please check your data.",
+        message: 'Invalid input - please check your data.',
         title: enteredTitle,
         content: enteredContent,
       },
       function () {
-        res.redirect("/admin");
+        res.redirect('/admin');
       }
     );
     return; // or return res.redirect('/admin'); => Has the same effect
@@ -41,7 +41,7 @@ async function createPost(req, res) {
   const post = new Post(enteredTitle, enteredContent);
   await post.save();
 
-  res.redirect("/admin");
+  res.redirect('/admin');
 }
 
 async function getSinglePost(req, res, next) {
@@ -49,12 +49,12 @@ async function getSinglePost(req, res, next) {
   try {
     post = new Post(null, null, req.params.id);
   } catch (error) {
-    return res.render("404");
+    return res.render('404');
   }
   await post.fetchSingle();
 
   if (!post.title || !post.content) {
-    return res.render("404"); // 404.ejs is missing at this point - it will be added later!
+    return res.render('404'); // 404.ejs is missing at this point - it will be added later!
   }
 
   sessionErrorData = validationSession.getSessionErrorData(req, {
@@ -62,7 +62,7 @@ async function getSinglePost(req, res, next) {
     content: post.content,
   });
 
-  res.render("single-post", {
+  res.render('single-post', {
     post: post,
     inputData: sessionErrorData,
   });
@@ -76,7 +76,7 @@ async function updatePost(req, res) {
     validationSession.flashErrorsToSession(
       req,
       {
-        message: "Invalid input - please check your data.",
+        message: 'Invalid input - please check your data.',
         title: enteredTitle,
         content: enteredContent,
       },
@@ -92,11 +92,11 @@ async function updatePost(req, res) {
   try {
     post = new Post(enteredTitle, enteredContent, req.params.id);
   } catch (error) {
-    return res.render("404");
+    return res.render('404');
   }
   await post.updateOne();
 
-  res.redirect("/admin");
+  res.redirect('/admin');
 }
 
 async function deletePost(req, res) {
@@ -104,10 +104,10 @@ async function deletePost(req, res) {
   try {
     post = new Post(null, null, req.params.id);
   } catch (error) {
-    return res.render("404");
+    return res.render('404');
   }
   await post.deleteOne();
-  res.redirect("/admin");
+  res.redirect('/admin');
 }
 
 module.exports = {

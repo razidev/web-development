@@ -1,6 +1,6 @@
-const bcrypt = require("bcryptjs");
+const bcrypt = require('bcryptjs');
 
-const db = require("../data/database");
+const db = require('../data/database');
 
 class User {
   constructor(email, password) {
@@ -11,7 +11,7 @@ class User {
   async getUserByEmail() {
     const existingUser = await db
       .getDb()
-      .collection("users")
+      .collection('users')
       .findOne({ email: this.email });
 
     return existingUser;
@@ -29,7 +29,7 @@ class User {
   async insertUser() {
     const hashedPassword = await bcrypt.hash(this.password, 12);
 
-    const result = await db.getDb().collection("users").insertOne({
+    const result = await db.getDb().collection('users').insertOne({
       email: this.email,
       password: hashedPassword,
     });
