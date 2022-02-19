@@ -3,6 +3,10 @@ const AuthModel = require("../models/auth");
 const validationSession = require("../util/validation-session");
 const validation = require("../util/validation");
 
+function get401Page(req, res) {
+  res.status(401).render("401");
+}
+
 function signup(req, res) {
   const sessionErrorData = validationSession.getSessionErrorData(req, {
     email: "",
@@ -137,4 +141,5 @@ module.exports = {
   signupForm,
   loginForm,
   logout,
+  get401Page
 };

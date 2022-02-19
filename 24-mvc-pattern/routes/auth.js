@@ -13,4 +13,6 @@ router.post('/login', authControllers.loginForm);
 
 router.post('/logout', authControllers.logout);
 
+router.get('/401', authControllers.get401Page);
+
 module.exports = router;
