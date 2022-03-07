@@ -4,6 +4,7 @@ const csrf = require('csurf');
 const app = express();
 const db = require('./data/database');
 const csrfTokenMiddleware = require('./middlewares/csrf-token');
+const errorHandlerMiddleware = require('./middlewares/error-handler');
 const authRoutes = require('./routes/auth.routes');
 
 app.set('view engine', 'ejs');//to activate rendering views using ejs
@@ -16,6 +17,8 @@ app.use(csrf());
 app.use(csrfTokenMiddleware);
 
 app.use(authRoutes);
+
+app.use(errorHandlerMiddleware);
 
 db.connectToDatabase().then(() => {
     console.info('app is running on port 3000');
