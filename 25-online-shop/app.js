@@ -9,6 +9,8 @@ const db = require('./data/database');
 const csrfTokenMiddleware = require('./middlewares/csrf-token');
 const errorHandlerMiddleware = require('./middlewares/error-handler');
 const authRoutes = require('./routes/auth.routes');
+const productsRoutes = require('./routes/products.routes');
+const baseRoutes = require('./routes/base.routes');
 
 app.set('view engine', 'ejs');//to activate rendering views using ejs
 app.set('views', path.join(__dirname, 'views'));//to set the path to the views folder
@@ -21,7 +23,9 @@ app.use(expressSession(sessionConfig));
 app.use(csrf());
 app.use(csrfTokenMiddleware);
 
+app.use(baseRoutes);
 app.use(authRoutes);
+app.use(productsRoutes);
 
 app.use(errorHandlerMiddleware);
 
