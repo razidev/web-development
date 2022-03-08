@@ -46,4 +46,5 @@ module.exports = {
   getSignup,
   getLogin,
   signup,
+  login
 };
