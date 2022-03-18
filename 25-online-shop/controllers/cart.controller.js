@@ -1,6 +1,6 @@
 const Product = require('../models/product.model');
 
-function addCartItem(req, res, next) {
+async function addCartItem(req, res, next) {
     let product;
     try {
         product = await Product.findById(req.body.productId);
