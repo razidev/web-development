@@ -14,7 +14,7 @@
             <% } %>
         </ul>
         <div id="cart-total">
-            <p>Total: Rp <%= locals.cart.totalPrice.toFixed(2) %></p>
+            <p>Total: Rp <span id="cart-total-price"><%= locals.cart.totalPrice.toFixed(2) %></span></p>
             <button class="btn">Buy Products</button>
         </div>
     </main>
