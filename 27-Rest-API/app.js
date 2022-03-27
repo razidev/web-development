@@ -1,10 +1,21 @@
 const express = require('express');
 const app = express();
 
+const db = require('./data/database');
+const quoteRoutes = require('./routes/quotes.routes');
+
 app.use(express.urlencoded({ extended: false }));
 
-app.get('/quote', function (req, res) {
-    res.status(200).json({ message: 'Hello World!' });
+app.use('/quotes', quoteRoutes);
+
+app.use((error, req, res, next) => {
+    res.status(500).json({
+        message: error.message
+    });
 });
 
-app.listen(3000);
+db.initDb().then(() => {
+    app.listen(3000);
+}).catch(err => {
+    console.log(err);
+})
