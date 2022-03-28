@@ -3,10 +3,12 @@ const app = express();
 
 const db = require('./data/database');
 const quoteRoutes = require('./routes/quotes.routes');
+const todosRoutes = require('./routes/todos.routes');
 
-app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
 
 app.use('/quotes', quoteRoutes);
+app.use('/todos', todosRoutes);
 
 app.use((error, req, res, next) => {
     res.status(500).json({
