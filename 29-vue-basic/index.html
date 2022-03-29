@@ -17,7 +17,7 @@
     <main id="todos-app">
       <h2>{{ newTodo }}</h2>
       <section id="todo-management">
-        <form>
+        <form @submit="saveTodo">
           <label for="text">Todo text</label>
           <input type="text" id="text" name="text" required />
           <button>Save</button>
