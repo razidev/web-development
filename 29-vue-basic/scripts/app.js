@@ -32,6 +32,9 @@ const TodosApp = {
             this.editedTodoId = todoId;
             const todo = this.todos.find(todo => todo.id === todoId);
             this.enteredTodoText = todo.text;
+        },
+        deleteTodo(todoId) {
+            this.todos = this.todos.filter(todo => todo.id !== todoId);
         }
     }
 };
