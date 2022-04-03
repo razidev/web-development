@@ -23,7 +23,8 @@
         </form>
       </section>
       <section id="todos">
-        <p v-if="todos.length === 0">Maybe start adding some todos ?</p>
+        <p v-if="todos.length === 0 && !isLoading">Maybe start adding some todos ?</p>
+        <p v-else-if="isLoading">Loading...</p>
         <ul v-else id="todos-list">
           <li v-for="todo in todos">
             <p>{{ todo.text }}</p>
