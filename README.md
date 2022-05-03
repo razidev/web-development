@@ -3,7 +3,7 @@
 *This repository is about I learn web development from scratch. I documented this because I want to share what I learned.*
 
 ### Included
-1. Pilot
+1. [Basic Project](https://github.com/razidev/web-development/tree/main/1-basic)
 22. [User Authentication](https://github.com/razidev/web-development/tree/main/22-user-authentication)
 23. [Web Security](https://github.com/razidev/web-development/tree/main/23-web-security)
 24. [MVC Pattern](https://github.com/razidev/web-development/tree/main/24-mvc-pattern)
