@@ -10,6 +10,7 @@
 5. [Grid Theory](https://github.com/razidev/web-development/tree/main/5-grid-theory)
 6. [Travel Goals Site](https://github.com/razidev/web-development/tree/main/6-travel-site)
 7. [Web Dev Responsive](https://github.com/razidev/web-development/tree/main/7-web-dev-responsive)
+8. [Z Index](https://github.com/razidev/web-development/tree/main/8-z-index)
 22. [User Authentication](https://github.com/razidev/web-development/tree/main/22-user-authentication)
 23. [Web Security](https://github.com/razidev/web-development/tree/main/23-web-security)
 24. [MVC Pattern](https://github.com/razidev/web-development/tree/main/24-mvc-pattern)
