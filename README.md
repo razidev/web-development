@@ -11,6 +11,7 @@
 6. [Travel Goals Site](https://github.com/razidev/web-development/tree/main/6-travel-site)
 7. [Web Dev Responsive](https://github.com/razidev/web-development/tree/main/7-web-dev-responsive)
 8. [Z Index](https://github.com/razidev/web-development/tree/main/8-z-index)
+9. [Card Effect](https://github.com/razidev/web-development/tree/main/9-card-effect)
 22. [User Authentication](https://github.com/razidev/web-development/tree/main/22-user-authentication)
 23. [Web Security](https://github.com/razidev/web-development/tree/main/23-web-security)
 24. [MVC Pattern](https://github.com/razidev/web-development/tree/main/24-mvc-pattern)
