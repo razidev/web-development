@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML Forms</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Demo Form</h1>
+    </header>
+    <main>
+      <form action="./index.html" method="GET">
+        <section>
+          <h2>Your Personal Details</h2>
+          <ul>
+            <li>
+              <label for="username">Your Username</label>
+              <input type="text" name="user-name" id="username" required placeholder="ex. Razi"/>
+            </li>
+            <li>
+              <label for="useremail">Your Email</label>
+              <input type="email" name="user-email" id="useremail" />
+            </li>
+            <li>
+              <label for="userpassword">Your Password</label>
+              <input type="password" name="user-password" id="userpassword" required minlength="7" />
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h2>more detail</h2>
+          <ul>
+            <li>
+              <label for="userage">Your age</label>
+              <input type="number" name="user-age" id="userage" required min="18" max="100" />
+            </li>
+            <li>
+              <label for="birthdate">Your birthdate</label>
+              <input type="date" name="user-birthdate" id="birthdate" required min="1950-01-01" max="2000-12-31" />
+            </li>
+            <li>
+              <label for="favorite-color">Your Favorite Color</label>
+              <select name="favorite-color" id="favorite-color">
+                <option value="Red">Blood</option>
+                <option value="Ocean">Blue</option>
+                <option value="Forest">Green</option>
+              </select>
+            </li>
+          </ul>
+        </section>
+        <section>
+          <label for="usermessage">Your Message</label>
+          <textarea name="user-message" id="usermessage"></textarea>
+        </section>
+        <section>
+          <h2>How should we verify your account ?</h2>
+          <ul>
+            <li class="form-class-inline">
+              <input
+                type="radio"
+                name="verify"
+                id="verify-text-message"
+                value="text-message"
+                required
+              />
+              <label for="verify-text-message">Via text message(sms)</label>
+            </li>
+            <li class="form-class-inline">
+              <input
+                type="radio"
+                name="verify"
+                id="verify-phone"
+                value="phone"
+                required
+              />
+              <label for="verify-phone">Via a phone call</label>
+            </li>
+            <li class="form-class-inline">
+              <input
+                type="radio"
+                name="verify"
+                id="verify-email"
+                value="email"
+                required
+              />
+              <label for="verify-email">Via an email</label>
+            </li>
+          </ul>
+        </section>
+        <section>
+          <ul>
+            <li class="form-class-inline">
+              <input type="checkbox" name="contact" id="via-email" value="email" />
+              <label for="via-email">Contact me Via an email</label>
+            </li>
+            <li class="form-class-inline">
+              <input type="checkbox" name="contact" id="via-phone" value="phone" />
+              <label for="via-phone">Contact me Via phone call</label>
+            </li>
+          </ul>
+        </section>
+        <hr/>
+        <section>
+          <div class="form-class-inline">
+            <input type="checkbox" name="terms" id="user-terms" />
+            <label for="user-terms">Aggree to terms?</label>
+          </div>
+        </section>
+        <section>
+          <button type="submit">Submit</button>
+        </section>
+      </form>
+    </main>
+  </body>
+</html>
