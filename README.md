@@ -14,6 +14,8 @@
 9. [Card Effect](https://github.com/razidev/web-development/tree/main/9-card-effect)
 10. [Form Input](https://github.com/razidev/web-development/tree/main/10-forms)
 11. [Form Exercise](https://github.com/razidev/web-development/tree/main/11-forms-training)
+12. [Intro JS](https://github.com/razidev/web-development/tree/main/12-JS-intro)
+13. [Advance JS](https://github.com/razidev/web-development/tree/main/13-JS-Advance)
 22. [User Authentication](https://github.com/razidev/web-development/tree/main/22-user-authentication)
 23. [Web Security](https://github.com/razidev/web-development/tree/main/23-web-security)
 24. [MVC Pattern](https://github.com/razidev/web-development/tree/main/24-mvc-pattern)
