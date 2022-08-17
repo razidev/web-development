@@ -17,6 +17,7 @@
 12. [Intro JS](https://github.com/razidev/web-development/tree/main/12-JS-intro)
 13. [Advance JS](https://github.com/razidev/web-development/tree/main/13-JS-Advance)
 14. [Tic Tac Toe](https://github.com/razidev/web-development/tree/main/14-tic-tac-toe)
+15. [3rd Party Web Package](https://github.com/razidev/web-development/tree/main/15-3rd-party-package)
 22. [User Authentication](https://github.com/razidev/web-development/tree/main/22-user-authentication)
 23. [Web Security](https://github.com/razidev/web-development/tree/main/23-web-security)
 24. [MVC Pattern](https://github.com/razidev/web-development/tree/main/24-mvc-pattern)
