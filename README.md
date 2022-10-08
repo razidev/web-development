@@ -28,3 +28,7 @@
 23. [Web Security](https://github.com/razidev/web-development/tree/main/23-web-security)
 24. [MVC Pattern](https://github.com/razidev/web-development/tree/main/24-mvc-pattern)
 25. [Online Shop](https://github.com/razidev/web-development/tree/main/25-online-shop)
+26. [Deploying Web](https://github.com/razidev/web-development/tree/main/26-deploying)
+27. [Restful API](https://github.com/razidev/web-development/tree/main/27-Rest-API)
+28. [Frontend Side](https://github.com/razidev/web-development/tree/main/28-frontendside)
+29. [Vue Basic](https://github.com/razidev/web-development/tree/main/29-vue-basic)
